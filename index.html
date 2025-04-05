@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المأذون الشرعي أبو فهد | توثيق عقد الزواج الإلكتروني</title>
- <meta name="description" content="مأذون شرعي معتمد لتوثيق عقد الزواج الإلكتروني في المجمعة، الرياض، الزلفي، سدير، وتمير. خدمة سريعة وموثوقة تحت إشراف وزارة العدل.">
+  <meta name="description" content="مأذون شرعي معتمد لتوثيق عقد الزواج الإلكتروني في المجمعة، الرياض، الزلفي، سدير، وتمير. خدمة سريعة وموثوقة تحت إشراف وزارة العدل.">
   <meta name="keywords" content="مأذون شرعي، عقد زواج، توثيق الزواج، وزارة العدل، عقد نكاح إلكتروني، مأذون أبو فهد">
   <!-- Open Graph Tags -->
 <meta property="og:title" content="المأذون الشرعي ابو فهد | توثيق عقد الزواج الإلكتروني">
@@ -300,6 +300,8 @@
           يمكنك إدخال بياناتك وبيانات الأطراف الأخرى في العقد، ثم تقديم الطلب والحصول على موافقة جميع الأطراف.<br><br>
           بعد ذلك سيتم استكمال اعتماد العقد من قبل مأذون الأنكحة لإصدار وثيقة عقد الزواج المعتمدة رسميًا.
         </p>
+
+        
 <a href="https://wa.me/966536863494" target="_blank" style="
   display: inline-block;
   margin-top: 20px;
@@ -332,11 +334,12 @@
     <img src="Saudi_Ministry_of_Justice_Logo.svg.png" alt="شعار وزارة العدل" style="margin-top: 20px; max-width: 150px;" />
     <p style="font-size: 16px; line-height: 1.8; color: #333;">
       نحن جهة مرخّصة رسميًا من وزارة العدل بالمملكة العربية السعودية، رقم الترخيص: <strong>10880</strong><br><br>
-      نلتزم بجميع معايير التوثيق الإلكتروني وفق أنظمة وزارة العدل ومنصة ناجز.<br><br>
+      نقدم خدماتنا لتوثيق الزواج في <span class="city-placeholder">مدينتك</span> والمناطق المجاورة، وفق معايير منصة ناجز.<br><br>
+      نلتزم بجميع معايير التوثيق الإلكتروني المعتمدة.
     </p>
-  
   </div>
 </section>
+
 
 
 <section class="services-section">
@@ -510,6 +513,48 @@
     جميع الحقوق محفوظة © ابوفهد – مأذون أنكحة معتمد
   </p>
 </footer>
+
+<div id="city-popup" style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 9999;">
+  <div style="background: white; padding: 30px; border-radius: 12px; text-align: center; max-width: 300px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    <h3 style="color: #1b5e20; margin-bottom: 20px;">اختر مدينتك</h3>
+    <select id="city-select" style="padding: 10px; width: 100%; border-radius: 8px; margin-bottom: 20px;">
+      <option disabled selected>اختر المدينة</option>
+      <option>المجمعة</option>
+      <option>الرياض</option>
+      <option>تمير</option>
+      <option>الزلفي</option>
+      <option>جلاجل</option>
+      <option>روضة سدير</option>
+    </select>
+    <button onclick="saveCity()" style="background-color: #1b5e20; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">تأكيد</button>
+  </div>
+</div>
+
+<script>
+  // عند التحميل
+  window.onload = function() {
+    if (!localStorage.getItem("selectedCity")) {
+      document.getElementById("city-popup").style.display = "flex";
+    } else {
+      updateCityText(localStorage.getItem("selectedCity"));
+    }
+  };
+
+  function saveCity() {
+    const city = document.getElementById("city-select").value;
+    if (city) {
+      localStorage.setItem("selectedCity", city);
+      document.getElementById("city-popup").style.display = "none";
+      updateCityText(city);
+    }
+  }
+
+  // تحديث النص في أماكن مخصصة
+  function updateCityText(city) {
+    const elements = document.querySelectorAll(".city-placeholder");
+    elements.forEach(el => el.textContent = city);
+  }
+</script>
 
 </body>
 </html>
