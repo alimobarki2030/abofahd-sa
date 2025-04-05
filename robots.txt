@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abofahd-sa.vercel.app/sitemap.xml
